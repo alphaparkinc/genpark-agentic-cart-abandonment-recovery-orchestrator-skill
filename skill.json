@@ -1,0 +1,42 @@
+{
+  "name": "genpark-agentic-cart-abandonment-recovery-orchestrator-skill",
+  "version": "1.0.0",
+  "description": "Autonomous Agentic Cart Abandonment Recovery Orchestrator. Monitors abandoned checkout sessions in Meta Muse, Shopify, and WhatsApp Commerce, diagnoses friction causes (shipping cost shock, size doubt, payment hesitation), crafts margin-preserving dynamic incentive vouchers, and synthesizes multi-channel win-back messages.",
+  "tools": [
+    {
+      "name": "orchestrate_cart_recovery",
+      "description": "Diagnose cart abandonment friction, synthesize dynamic win-back voucher incentives within profit margin bounds, and generate recovery message drafts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "diagnose_abandonment_friction",
+              "synthesize_winback_offer",
+              "generate_recovery_message"
+            ],
+            "description": "Cart recovery action."
+          },
+          "cart_session": {
+            "type": "object",
+            "description": "Cart session with cart_id, total_usd, items, shipping_cost, exit_step."
+          },
+          "channel": {
+            "type": "string",
+            "enum": [
+              "WHATSAPP",
+              "WECHAT_WORK",
+              "EMAIL",
+              "SMS"
+            ],
+            "description": "Delivery channel."
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  ]
+}
